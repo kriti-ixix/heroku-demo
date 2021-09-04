@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diabetes Prediction</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+	.btn{
+		background: linear-gradient(to bottom right, #28015c, #33ccff);
+		color: white;
+	}
+	/*.top{
+		margin-top: 100px;
+	}*/
+	.fform{
+		/*background-color: #340078;*/
+		background-color: #eee;
+		padding: 50px;
+		margin-top: 70px;
+
+	}
+	.heading{
+		background-color: #28015c;
+		padding: 10px;
+		color: white;
+		text-align: center;
+	}
+	.top {
+		position: relative;
+		margin-top:100px;
+	}
+	body {
+		/*background: url('./../GettyImages-1128689648.jpg.webp');*/
+		background: url('https://i.dietdoctor.com/wp-content/uploads/2019/06/GettyImages-1128689648.jpg?auto=compress%2Cformat&w=1200&h=720&fit=crop');
+		background-size: cover;
+	}
+	
+</style>
+</head>
+<body style="background-repeat: no-repeat; background-size: 100% 100%; background-attachment: fixed;">
+	<div class="col-lg-12">
+		<div class="container">
+			<div class="col-lg-5 top">
+				<div class="col-lg-12 heading">
+					<h3><b>Enter your details</b></h3>
+				</div>
+				<form class="form fform" action="http://127.0.0.1:5000/predict" method="post">
+					<div class="form-group">
+						<input type="text" name="name" placeholder="Enter your Name" class="form-control">
+					</div>
+					<div class="form-group">
+						<input type="number" name="bmi" placeholder="Enter your BMI" class="form-control">
+					</div>
+					<div class="form-group">
+						<input type="number" name="age" placeholder="Enter your age" class="form-control">
+					</div>
+					<div class="form-group">
+						<input type="number" name="glucose" placeholder="Enter your glucose" class="form-control">
+					</div>
+					<div class="form-group">
+						<input type="submit" name="submit" value="Submit" class="btn btn-md">
+					</div>
+
+					<div class="form-group">
+						<b>Diagnosis: {{ diagnosis_output }} <br>
+						Confidence: {{ confidence_output }}</b>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
